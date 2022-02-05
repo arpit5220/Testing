@@ -1,0 +1,17 @@
+public static void selectionSort(int[] arr) {
+    //write your code here
+    for(int i=0;i<arr.length-1;i++)
+    {
+      int min=i;
+      for(int j=i+1;j<arr.length;j++)
+      {
+          if(arr[j]<min)   // if arr[j] is min than previous minimum
+          {
+            min=j;
+          }
+      }
+
+      swap(arr,i,min);      //swap every min with 0th,1th,2th,..... index;
+    }
+  
+  }
