@@ -1,0 +1,35 @@
+public static int[] mergeTwoSortedArrays(int[] a, int[] b){
+    //write your code here
+    int res[] =new int[a.length+b.length];
+    int l=0,r=0,k=0;
+    while(l<a.length && r<b.length)
+    {
+      if(a[l]<=b[r])
+      {
+        res[k]=a[l];
+        k++;
+        l++;
+      }
+      else
+      {
+        res[k]=b[r];
+        k++;
+        r++;
+      }
+    }
+
+      while(l<a.length)
+      {
+        res[k]=a[l];
+        k++;
+        l++;
+      }
+      while(r<b.length)
+      {
+        res[k]=b[r];
+        k++;
+        r++;
+      }
+       
+    return res;
+  }
