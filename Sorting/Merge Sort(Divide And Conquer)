@@ -1,0 +1,49 @@
+public static int[] mergeSort(int[] arr, int left, int right) {     // MERGE SORT CODE // RETURN TYPE AN ARRAY
+    //write your code here
+    if(left==right)
+    {
+      int [] base=new int[1];
+      base[0]=arr[left];
+      return base;
+    }
+
+    int mid=(right+left)/2;
+
+     int leftsorted[]=mergeSort(arr,left,mid);
+     int rightsorted[]=mergeSort(arr,mid+1,right);
+
+     int [] sorted=mergeTwoSortedArrays(leftsorted,rightsorted);          // USING FUNCTION MERGE TWO SORTED ARRAY WHICH IS GIVEN BELOW.
+
+    return sorted;
+  }
+
+  //used for merging two sorted arrays
+  public static int[] mergeTwoSortedArrays(int[] a, int[] b){      //// RETURN TYPE AN ARRAY
+    int i = 0, j =0, k = 0;
+    int[] ans = new int[a.length + b.length];
+    while(i < a.length && j < b.length){
+        if(a[i] <= b[j]){
+          ans[k] = a[i];
+          i++;
+          k++;
+        }else{
+          ans[k] = b[j];
+          j++;
+          k++;
+        }
+    }
+
+    while(i < a.length){
+      ans[k] = a[i];
+      k++;
+      i++;
+    }
+
+    while(j < b.length){
+      ans[k] = b[j];
+      k++;
+      j++;
+    }
+    
+    return ans;
+  }
